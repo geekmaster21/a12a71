@@ -1,28 +1,25 @@
 #!/bin/bash
 
-KERNEL_DEFCONFIG=nova_defconfig
+KERNEL_DEFCONFIG=a71_defconfig
 
 echo
 echo "==> Clean Build Directory"
 echo 
-
-make clean && make mrproper
-make O=out clean
 
 echo
 echo "==> Issue Build Commands"
 echo
 
 mkdir -p out
-export HOME=/home/phennaux
+export HOME=/home/ubuntu
 export ARCH=arm64
 export SUBARCH=arm64
 export CLANG_PATH=$HOME/Documents/kernel_dev/toolchains/azure-clang/bin
 export PATH="$CLANG_PATH:$PATH"
 export CROSS_COMPILE=aarch64-linux-gnu-
 export CROSS_COMPILE_ARM32=arm-linux-gnueabi-
-export KBUILD_BUILD_USER=OneUI
-export KBUILD_BUILD_HOST=Nova
+export KBUILD_BUILD_USER=MasterKernel-2.0
+export KBUILD_BUILD_HOST=OVH
 
 START=$(date +"%s")
 
